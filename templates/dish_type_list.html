@@ -1,0 +1,11 @@
+<h1>Lista de Tipos de Pratos</h1>
+
+<ul>
+    {% for dish_type in object_list %}
+        <li>
+            <strong>{{ dish_type.name }}</strong><br>
+        </li>
+    {% empty %}
+        <li>Nenhum tipo de prato cadastrado.</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,16 @@
+<h1>Lista de Chefs</h1>
+
+<ul>
+    {% for cook in object_list %}
+        <li>
+            <strong>{{ cook.name }}</strong><br>
+            Anos de Experiência: {{ cook.years_of_experience }}<br>
+            Email: {{ cook.email }}<br>
+            Nome de Usuário: {{ cook.username }}<br>
+            Nome: {{ cook.first_name }}<br>
+            Sobrenome: {{ cook.last_name }}<br>
+        </li>
+    {% empty %}
+        <li>Nenhum chef cadastrado.</li>
+    {% endfor %}
+</ul>
