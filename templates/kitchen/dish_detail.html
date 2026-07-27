@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ object.name }}</h1>
+
+<p><strong>Description:</strong> {{ object.description }}</p>
+
+<p><strong>Price:</strong> R$ {{ object.price }}</p>
+
+<p><strong>Type:</strong> {{ object.dish_type }}</p>
+
+<h2>Cooks</h2>
+
+<ul>
+    {% for cook in object.cooks.all %}
+        <li>{{ cook.username }}</li>
+    {% empty %}
+        <li>No cooks registered.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'kitchen:dishes-list' %}">
+    Back to Dishes List
+</a>
+
+{% endblock %}

@@ -12,7 +12,9 @@ Dishes List
 <ul>
     {% for dish in object_list %}
         <li>
-            <strong>{{ dish.name }}</strong><br>
+            <strong><a href="{% url 'kitchen:dish-detail' dish.id %}">
+    {{ dish.name }}
+</a></strong><br>
             {{ dish.description }}<br>
             R$ {{ dish.price }}<br>
             Tipo: {{ dish.dish_type }}
