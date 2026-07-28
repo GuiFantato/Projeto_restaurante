@@ -9,7 +9,7 @@ from kitchen.forms import DishForm
 
 class DishesListView(ListView):
     model = Dish
-    template_name = 'dishes_list.html'
+    template_name = 'dish_list.html'
     paginate_by = 5
 
 
@@ -37,8 +37,33 @@ class DishesDetailView(DetailView):
 
 class DishTypeListView(ListView):
     model = DishType
-    template_name = 'dish_type_list.html'
+    template_name = 'kitchen/dish_type_list.html'
     paginate_by = 5
+
+
+class DishTypeCreateView(CreateView):
+    model = DishType
+    template_name = 'kitchen/dish_type_form.html'
+    fields = ['name']
+    success_url = reverse_lazy("kitchen:dish-type-list")
+
+
+class DishTypeDetailView(DetailView):
+    model = DishType
+    template_name = "kitchen/dish_type_detail.html"
+
+
+class DishTypeUpdateView(UpdateView):
+    model = DishType
+    template_name = 'kitchen/dish_type_form.html'
+    fields = ['name']
+    success_url = reverse_lazy("kitchen:dish-type-list")
+
+
+class DishTypeDeleteView(DeleteView):
+    model = DishType
+    template_name = 'kitchen/dish_type_confirm_delete.html'
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class CookListView(ListView):
