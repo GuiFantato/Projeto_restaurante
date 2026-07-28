@@ -2,7 +2,15 @@
 
 {% block content %}
 
-<h1>{{ object.name }}</h1>
+<h1>{{ object.name }}
+    <a href="{% url 'kitchen:dish-delete' pk=object.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'kitchen:dish-update' pk=object.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+</h1>
 
 <p><strong>Description:</strong> {{ object.description }}</p>
 
