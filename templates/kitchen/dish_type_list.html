@@ -30,26 +30,24 @@
 
                 <div class="card-body">
 
+                    <h4 class="card-title ">
+                        {{ dish_type.name }}
+
+                    </h4>
+                    
                     <span class="badge bg-primary mb-3">
                         Dish Type
                     </span>
 
-                    <h4 class="card-title">
-                        {{ dish_type.name }}
-                    </h4>
-
                 </div>
 
                 <div class="card-footer bg-white d-flex justify-content-between">
+                    
+                    <a></a>
 
                     <a href="{% url 'kitchen:dish-type-update' dish_type.id %}"
                        class="btn btn-warning">
                         Edit
-                    </a>
-
-                    <a href="{% url 'kitchen:dish-type-delete' dish_type.id %}"
-                       class="btn btn-outline-danger">
-                        Delete
                     </a>
 
                 </div>

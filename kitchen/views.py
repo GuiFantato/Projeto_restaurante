@@ -70,3 +70,27 @@ class CookListView(ListView):
     model = Cook
     template_name = 'cook_list.html'
     paginate_by = 5
+
+
+class CookCreateView(CreateView):
+    model = Cook
+    template_name = 'kitchen/cook_form.html'
+    fields = ['first_name', 'last_name', 'email', 'username', 'years_of_experience']
+    success_url = reverse_lazy("kitchen:cook-list")
+
+
+class CookDetailView(DetailView):
+    model = Cook
+    template_name = 'kitchen/cook_detail.html'
+
+
+class CookUpdateView(UpdateView):
+    model = Cook
+    template_name = 'kitchen/cook_form.html'
+    fields = ['first_name', 'last_name', 'email', 'username', 'years_of_experience']
+    success_url = reverse_lazy("kitchen:cook-list")
+
+class CookDeleteView(DeleteView):
+    model = Cook
+    template_name = 'kitchen/cook_confirm_delete.html'
+    success_url = reverse_lazy("kitchen:cook-list")

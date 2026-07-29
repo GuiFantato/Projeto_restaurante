@@ -13,10 +13,10 @@
             </p>
         </div>
 
-        {% comment %} <a href="{% url 'kitchen:cook-create' %}"
+        <a href="{% url 'kitchen:cook-create' %}"
            class="btn btn-success">
             + New Cook
-        </a> {% endcomment %}
+        </a>
 
     </div>
 
@@ -60,15 +60,15 @@
 
                 <div class="card-footer bg-white d-flex justify-content-between">
 
-                    {% comment %} <a href="{% url 'kitchen:cook-detail' cook.id %}"
+                    <a href="{% url 'kitchen:cook-detail' cook.id %}"
                        class="btn btn-outline-primary">
                         Details
-                    </a> {% endcomment %}
+                    </a>
 
-                    {% comment %} <a href="{% url 'kitchen:cook-update' cook.id %}"
+                    <a href="{% url 'kitchen:cook-update' cook.id %}"
                        class="btn btn-warning">
                         Edit
-                    </a> {% endcomment %}
+                    </a>
 
                 </div>
 
