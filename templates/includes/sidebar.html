@@ -1,5 +1,35 @@
-<ul class="list-group">
-  <li class="list-group-item"><a href="{% url 'kitchen:dishes-list' %}">Dishes</a></li>
-  <li class="list-group-item"><a href="{% url 'kitchen:dish-type-list' %}">All Dish Types</a></li>
-  <li class="list-group-item"><a href="{% url 'kitchen:cooks-list' %}">All cooks</a></li>
-</ul>
+<div class="flex-column flex-shrink-0 p-3 text-bg-dark vh-100"
+      style="width: 280px;">
+
+    <p
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-1 fw-bold">Kitchen</span>
+    </p>
+
+    <hr>
+
+    <ul class="nav nav-pills flex-column mb-auto">
+
+        <li class="nav-item mb-2">
+            <a href="{% url 'kitchen:dish-list' %}"
+                class="fs-5 nav-link {% if request.resolver_match.url_name == 'dish-list' %}active{% else %}text-white{% endif %}">
+                Dishes
+            </a>
+        </li>
+
+        <li class="mb-2">
+            <a href="{% url 'kitchen:dish-type-list' %}"
+                class="fs-5 nav-link {% if request.resolver_match.url_name == 'dish-type-list' %}active{% else %}text-white{% endif %}">
+                Dish Types
+            </a>
+        </li>
+
+        <li class="mb-2">
+            <a href="{% url 'kitchen:cook-list' %}"
+                class="fs-5 nav-link {% if request.resolver_match.url_name == 'cook-list' %}active{% else %}text-white{% endif %}">
+                Cooks
+            </a>
+        </li>
+
+    </ul>
+</div>

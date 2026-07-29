@@ -5,7 +5,7 @@ from .views import DishTypeListView, DishTypeCreateView, DishTypeDetailView, Dis
 from .views import CookListView
 
 urlpatterns = [
-    path('dishes/', DishesListView.as_view(), name='dishes-list'),
+    path('dishes/', DishesListView.as_view(), name='dish-list'),
     path('dishes/create/', DishesCreateView.as_view(), name='dish-create'),
     path('dishes/<int:pk>/', DishesDetailView.as_view(), name='dish-detail'),
     path('dishes/<int:pk>/update/', DishesUpdateView.as_view(), name='dish-update'),
@@ -15,7 +15,7 @@ urlpatterns = [
     path('dish-type/<int:pk>/', DishTypeDetailView.as_view(), name='dish-type-detail'),
     path('dish-type/<int:pk>/update/', DishTypeUpdateView.as_view(), name='dish-type-update'),
     path('dish-type/<int:pk>/delete/', DishTypeDeleteView.as_view(), name='dish-type-delete'),
-    path('cooks/', CookListView.as_view(), name='cooks-list'),
+    path('cooks/', CookListView.as_view(), name='cook-list'),
 ]
 
 app_name = "kitchen"
