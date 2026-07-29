@@ -1,48 +1,75 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>
-    Dish Type List
-<a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary link-to-page">
-    Create
-</a>
-</h1>
 
-<ul>
-    {% for dish_type in object_list %}
-        <li><strong><a href="{% url 'kitchen:dish-type-detail' dish_type.id %}">
-        {{ dish_type.name }}
-        </a></strong></li>
-    {% empty %}
-        <li>Nenhum tipo de prato cadastrado.</li>
-    {% endfor %}
-</ul>
+<div class="container-fluid">
 
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-<div class="pagination">
-    
-    {% if page_obj.has_previous %}
-    <a href="?page=1">&laquo; Primeira</a>
-    
-    <a href="?page={{ page_obj.previous_page_number }}">
-        Anterior
-    </a>
-    {% endif %}
-    
-    <span>
-        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
-    </span>
-    
-    {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}">
-        Próxima
-    </a>
-    
-    <a href="?page={{ page_obj.paginator.num_pages }}">
-        Última &raquo;
-    </a>
-    {% endif %}
-    
+        <div>
+            <h1 class="fw-bold mb-0">Dish Types</h1>
+            <p class="text-muted mb-0">
+                Manage all dish categories
+            </p>
+        </div>
+
+        <a href="{% url 'kitchen:dish-type-create' %}"
+           class="btn btn-success">
+            + New Dish Type
+        </a>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for dish_type in dishtype_list %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary mb-3">
+                        Dish Type
+                    </span>
+
+                    <h4 class="card-title">
+                        {{ dish_type.name }}
+                    </h4>
+
+                </div>
+
+                <div class="card-footer bg-white d-flex justify-content-between">
+
+                    <a href="{% url 'kitchen:dish-type-update' dish_type.id %}"
+                       class="btn btn-warning">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'kitchen:dish-type-delete' dish_type.id %}"
+                       class="btn btn-outline-danger">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+            <div class="alert alert-info">
+                No dish types registered.
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
 </div>
+
 {% endblock %}

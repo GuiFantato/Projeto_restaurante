@@ -16,18 +16,18 @@ class DishesListView(ListView):
 class DishesCreateView(CreateView):
     model = Dish
     form_class = DishForm
-    success_url = reverse_lazy("kitchen:dishes-list")
+    success_url = reverse_lazy("kitchen:dish-list")
 
 
 class DishesUpdateView(UpdateView):
     model = Dish
     form_class = DishForm
-    success_url = reverse_lazy("kitchen:dishes-list")
+    success_url = reverse_lazy("kitchen:dish-list")
 
 
 class DishesDeleteView(DeleteView):
     model = Dish
-    success_url = reverse_lazy("kitchen:dishes-list")
+    success_url = reverse_lazy("kitchen:dish-list")
 
 
 class DishesDetailView(DetailView):
