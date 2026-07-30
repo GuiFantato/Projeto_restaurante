@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ object.name }}
+    <a href="{% url 'kitchen:dish-type-delete' pk=object.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'kitchen:dish-type-update' pk=object.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+</h1>
+<a href="{% url 'kitchen:dish-type-list' %}">
+    Back to Dish Types List
+</a>
+
+{% endblock %}
